@@ -39,4 +39,4 @@ jobs:
           cat .env.testing
 
       - name: Run Tests with Detailed Output
-        run: php artisan test --env=testing --debug --verbose
+        run: php artisan test --env=testing --debug
