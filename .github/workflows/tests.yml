@@ -34,4 +34,4 @@ jobs:
           cat .env.testing
 
       - name: Run Tests
-        run: ./vendor/bin/pest
+        run: ./vendor/bin/pest --env=testing
