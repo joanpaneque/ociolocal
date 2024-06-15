@@ -23,9 +23,15 @@ jobs:
 
       - name: Create SQLite Database
         run: |
+          mkdir -p database
           touch database/testing.sqlite
           php artisan key:generate --env=testing --show
           php artisan migrate --env=testing
+
+      - name: Debugging Information
+        run: |
+          ls -al database
+          cat .env.testing
 
       - name: Run Tests
         run: ./vendor/bin/pest
