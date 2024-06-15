@@ -3,7 +3,7 @@ name: Tests
 on: ['push', 'pull_request']
 
 jobs:
-  ci:
+  Testing:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,17 +21,22 @@ jobs:
       - name: Install Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
-      - name: Create SQLite Database
+      - name: Setup Database
         run: |
           mkdir -p database
           touch database/testing.sqlite
-          php artisan key:generate --env=testing --show
+          chmod 666 database/testing.sqlite
           php artisan migrate --env=testing
+
+      - name: Clear Configuration Cache
+        run: php artisan config:clear --env=testing
 
       - name: Debugging Information
         run: |
+          echo "Directory listing of /database:"
           ls -al database
+          echo "Contents of .env.testing:"
           cat .env.testing
 
-      - name: Run Tests
-        run: php artisan test --env=testing
+      - name: Run Tests with Detailed Output
+        run: php artisan test --env=testing --debug --verbose
