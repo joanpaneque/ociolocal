@@ -2,14 +2,10 @@
 import { Head } from '@inertiajs/vue3';
 import Section from '@/Components/Section.vue';
 import ActivityThumbnail from '@/Components/ActivityThumbnail.vue';
+import CategoryThumbnail from '@/Components/CategoryThumbnail.vue';
 
 
-function handleImageError() {
-    document.getElementById('screenshot-container')?.classList.add('!hidden');
-    document.getElementById('docs-card')?.classList.add('!row-span-1');
-    document.getElementById('docs-card-content')?.classList.add('!flex-row');
-    document.getElementById('background')?.classList.add('!hidden');
-}
+
 </script>
 
 <template>
@@ -30,19 +26,37 @@ function handleImageError() {
     <main class="flex flex-col pr-4 pl-4">
         <Section title="Descuentos + TOP 🔥" secondary="02:35:13h restantes">
             <div class="flex gap-3 overflow-x-auto w-full">
-                <ActivityThumbnail :activity="{ name: 'SkyDive Empuriabrava', discount: '7% de descuento', thumbnail: '/assets/welcome/skydive.jpg' }" />
-                <ActivityThumbnail :activity="{ name: 'Windoor Empuriabrava', discount: '3% de descuento', thumbnail: '/assets/welcome/windoor.avif' }" />
-                <ActivityThumbnail :activity="{ name: 'SkyDive Empuriabrava', discount: '7% de descuento', thumbnail: '/assets/welcome/skydive.jpg' }" />
-                <ActivityThumbnail :activity="{ name: 'Windoor Empuriabrava', discount: '3% de descuento', thumbnail: '/assets/welcome/windoor.avif' }" />
-                <ActivityThumbnail :activity="{ name: 'SkyDive Empuriabrava', discount: '7% de descuento', thumbnail: '/assets/welcome/skydive.jpg' }" />
-                <ActivityThumbnail :activity="{ name: 'Windoor Empuriabrava', discount: '3% de descuento', thumbnail: '/assets/welcome/windoor.avif' }" />
-                <ActivityThumbnail :activity="{ name: 'SkyDive Empuriabrava', discount: '7% de descuento', thumbnail: '/assets/welcome/skydive.jpg' }" />
-                <ActivityThumbnail :activity="{ name: 'Windoor Empuriabrava', discount: '3% de descuento', thumbnail: '/assets/welcome/windoor.avif' }" />
-                
+                <ActivityThumbnail
+                    :activity="{ name: 'SkyDive Empuriabrava', discount: '7% de descuento', thumbnail: '/assets/welcome/skydive.jpg' }" />
+                <ActivityThumbnail
+                    :activity="{ name: 'Windoor Empuriabrava', discount: '3% de descuento', thumbnail: '/assets/welcome/windoor.avif' }" />
+                <ActivityThumbnail
+                    :activity="{ name: 'SkyDive Empuriabrava', discount: '7% de descuento', thumbnail: '/assets/welcome/skydive.jpg' }" />
+                <ActivityThumbnail
+                    :activity="{ name: 'Windoor Empuriabrava', discount: '3% de descuento', thumbnail: '/assets/welcome/windoor.avif' }" />
+                <ActivityThumbnail
+                    :activity="{ name: 'SkyDive Empuriabrava', discount: '7% de descuento', thumbnail: '/assets/welcome/skydive.jpg' }" />
+                <ActivityThumbnail
+                    :activity="{ name: 'Windoor Empuriabrava', discount: '3% de descuento', thumbnail: '/assets/welcome/windoor.avif' }" />
+                <ActivityThumbnail
+                    :activity="{ name: 'SkyDive Empuriabrava', discount: '7% de descuento', thumbnail: '/assets/welcome/skydive.jpg' }" />
+                <ActivityThumbnail
+                    :activity="{ name: 'Windoor Empuriabrava', discount: '3% de descuento', thumbnail: '/assets/welcome/windoor.avif' }" />
             </div>
         </Section>
-
         <Section title="¿Qué te apetece?">
+            <div class="flex gap-3 overflow-x-auto w-full">
+                <CategoryThumbnail
+                    :category="{ name: 'Volar', emoji: '🪂', thumbnail: '/assets/welcome/skydive_thumb.jpg' }" />
+                <CategoryThumbnail
+                    :category="{ name: 'Carreras', emoji: '🏎️', thumbnail: '/assets/welcome/karting_thumb.jpg' }" />
+                <CategoryThumbnail
+                    :category="{ name: 'Parques', emoji: '🎢', thumbnail: '/assets/welcome/aquabrava_thumb.jpg' }" />
+                <CategoryThumbnail
+                :category="{ name: 'Cine', emoji: '🎬', thumbnail: '/assets/welcome/cine_thumb.jpg' }" />
+                <CategoryThumbnail
+                :category="{ name: 'Acuático', emoji: '🌊', thumbnail: '/assets/welcome/jet_ski_thumb.jpg' }" />
+            </div>
 
         </Section>
         <Section title="Encuentra un plan para ti">
