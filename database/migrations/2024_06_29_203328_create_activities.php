@@ -8,17 +8,18 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('activities', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
-            $table->string('email', 255)->unique();
-            $table->string('password', 255);
+            $table->foreignId('company_id')->constrained()->onDelete('cascade');
+            $table->text('description');
             $table->timestamps();
+            
+            $table->index('company_id');
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('activities');
     }
 };
