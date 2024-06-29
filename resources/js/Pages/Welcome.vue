@@ -60,7 +60,12 @@ import CategoryThumbnail from '@/Components/CategoryThumbnail.vue';
 
         </Section>
         <Section title="Encuentra un plan para ti">
-
+            <div class="bg-gradient-to-r from-pink-500 to-yellow-300 rounded-[10px] p-[1px] relative">
+                <img src="/assets/icons/search.svg" alt="Search icon" class="absolute w-[20px] top-[50%] left-3 transform -translate-y-1/2 pointer-events-none" />
+                <img src="/assets/welcome/AI.svg" alt="AI" class="absolute bottom-[-40px] left-[80px] pointer-events-none" />
+                
+                <input type="text" class="pl-[40px] w-full border border-gray-300 border-none bg-white rounded-[10px] p-2" placeholder="Un plan de finde con amigos..." />
+            </div>
         </Section>
         <Section title="Opiniones">
 
