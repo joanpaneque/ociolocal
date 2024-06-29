@@ -1,6 +1,7 @@
 <script setup>
 import { Head } from '@inertiajs/vue3';
 import Section from '@/Components/Section.vue';
+import ActivityThumbnail from '@/Components/ActivityThumbnail.vue';
 
 
 function handleImageError() {
@@ -28,23 +29,16 @@ function handleImageError() {
     </header>
     <main class="flex flex-col pr-4 pl-4">
         <Section title="Descuentos + TOP 🔥" secondary="02:35:13h restantes">
-            <div class="flex gap-2 overflow-x-auto w-full">
-                <div class="w-5 h-5 bg-red-500 flex-shrink-0"></div>
-                <div class="w-5 h-5 bg-yellow-500 flex-shrink-0"></div>
-                <div class="w-5 h-5 bg-green-500 flex-shrink-0"></div>
-                <div class="w-5 h-5 bg-blue-500 flex-shrink-0"></div>
-                <div class="w-5 h-5 bg-purple-500 flex-shrink-0"></div>
-                <div class="w-5 h-5 bg-pink-500 flex-shrink-0"></div>
-                <div class="w-5 h-5 bg-yellow-500 flex-shrink-0"></div>
-                <div class="w-5 h-5 bg-green-500 flex-shrink-0"></div>
-                <div class="w-5 h-5 bg-red-500 flex-shrink-0"></div>
-                <div class="w-5 h-5 bg-yellow-500 flex-shrink-0"></div>
-                <div class="w-5 h-5 bg-green-500 flex-shrink-0"></div>
-                <div class="w-5 h-5 bg-blue-500 flex-shrink-0"></div>
-                <div class="w-5 h-5 bg-purple-500 flex-shrink-0"></div>
-                <div class="w-5 h-5 bg-pink-500 flex-shrink-0"></div>
-                <div class="w-5 h-5 bg-yellow-500 flex-shrink-0"></div>
-                <div class="w-5 h-5 bg-green-500 flex-shrink-0"></div>
+            <div class="flex gap-3 overflow-x-auto w-full">
+                <ActivityThumbnail :activity="{ name: 'SkyDive Empuriabrava', discount: '7% de descuento', thumbnail: '/assets/welcome/skydive.jpg' }" />
+                <ActivityThumbnail :activity="{ name: 'Windoor Empuriabrava', discount: '3% de descuento', thumbnail: '/assets/welcome/windoor.avif' }" />
+                <ActivityThumbnail :activity="{ name: 'SkyDive Empuriabrava', discount: '7% de descuento', thumbnail: '/assets/welcome/skydive.jpg' }" />
+                <ActivityThumbnail :activity="{ name: 'Windoor Empuriabrava', discount: '3% de descuento', thumbnail: '/assets/welcome/windoor.avif' }" />
+                <ActivityThumbnail :activity="{ name: 'SkyDive Empuriabrava', discount: '7% de descuento', thumbnail: '/assets/welcome/skydive.jpg' }" />
+                <ActivityThumbnail :activity="{ name: 'Windoor Empuriabrava', discount: '3% de descuento', thumbnail: '/assets/welcome/windoor.avif' }" />
+                <ActivityThumbnail :activity="{ name: 'SkyDive Empuriabrava', discount: '7% de descuento', thumbnail: '/assets/welcome/skydive.jpg' }" />
+                <ActivityThumbnail :activity="{ name: 'Windoor Empuriabrava', discount: '3% de descuento', thumbnail: '/assets/welcome/windoor.avif' }" />
+                
             </div>
         </Section>
 
