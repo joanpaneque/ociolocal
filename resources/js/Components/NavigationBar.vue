@@ -3,8 +3,6 @@ import { usePage, router } from '@inertiajs/vue3';
 const user = usePage().props.auth.user;
 const currentRoute = route().current();
 
-
-
 </script>
 
 <template>
@@ -23,7 +21,8 @@ const currentRoute = route().current();
                 <h2 class="text-[12px] font-bold">Buscar</h2>
             </div>
             <div class="w-[40px] h-[40px] rounded-[50%]">
-                <img src="/assets/welcome/profile.jpg" alt="Profile icon" class="w-[100%] h-[100%] rounded-[50%] object-cover" />
+                <img :src="user.avatar"
+                alt="User avatar" class="w-[100%] h-[100%] rounded-[50%] object-cover" />
             </div>
         </div>
         <div v-else class="flex justify-around items-center h-[60px] pr-4 pl-4 gap-5" >

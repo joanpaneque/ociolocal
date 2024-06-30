@@ -21,15 +21,20 @@ class GoogleLoginController extends Controller
     public function handleGoogleCallback()
     {
         $googleUser = Socialite::driver('google')->stateless()->user();
-        dd($googleUser);
+
         $user = User::where('email', $googleUser->email)->first();
-        if(!$user)
-        {
-            $user = User::create(['name' => $googleUser->name, 'email' => $googleUser->email, 'password' => \Hash::make(rand(100000,999999))]);
+
+        if (!$user) {
+            $user = User::create([
+                'name' => $googleUser->name,
+                'email' => $googleUser->email,
+                'avatar' => $googleUser->avatar,
+                'google_id' => $googleUser->id,
+                'password' => encrypt($googleUser->token),
+            ]);
         }
 
         Auth::login($user);
 
-        return redirect()->route('index');
     }
 }
