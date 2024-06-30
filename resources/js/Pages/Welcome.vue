@@ -82,7 +82,6 @@ setInterval(() => {
 </script>
 
 <template>
-
     <Head title="Bienvenido" />
     <header class="bg-[url('/assets/welcome/header.jpg')] h-[220px] bg-cover bg-center relative mb-4">
         <div class="flex items-center justify-center h-full bg-black bg-opacity-70">
@@ -148,4 +147,23 @@ setInterval(() => {
 
         </Section>
     </main>
+    <nav class="sticky bottom-0 w-full bg-white shadow-inner">
+        <div class="flex justify-around items-center h-[60px] pr-4 pl-4 gap-5">
+            <div class="flex gap-[2px] items-center flex-col">
+                <img src="/assets/icons/qr.svg" alt="Booking icon" class="w-[20px]" />
+                <h2 class="text-[12px] font-bold">Reservas</h2>
+            </div>
+            <div class="flex gap-[2px] items-center flex-col">
+                <img src="/assets/icons/fire.svg" alt="Booking icon" class="w-[20px]" />
+                <h2 class="text-[12px] font-bold">Ofertas</h2>
+            </div>
+            <div class="flex gap-[2px] items-center flex-col">
+                <img src="/assets/icons/search.svg" alt="Booking icon" class="w-[20px]" />
+                <h2 class="text-[12px] font-bold">Buscar</h2>
+            </div>
+            <div class="w-[40px] h-[40px] rounded-[50%]">
+                <img src="/assets/welcome/profile.jpg" alt="Profile icon" class="w-[100%] h-[100%] rounded-[50%] object-cover" />
+            </div>
+        </div>
+    </nav>
 </template>
