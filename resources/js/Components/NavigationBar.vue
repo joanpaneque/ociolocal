@@ -20,7 +20,9 @@ const currentRoute = route().current();
                 <img src="/assets/icons/search.svg" alt="Booking icon" class="w-[20px]" />
                 <h2 class="text-[12px] font-bold">Buscar</h2>
             </div>
-            <div class="w-[40px] h-[40px] rounded-[50%]">
+            <div
+                @click="router.get(route('user.show', user.id))"   
+                class="w-[40px] h-[40px] rounded-[50%] border-spacing-8 border-2 border-gray-300 overflow-hidden">
                 <img :src="user.avatar"
                 alt="User avatar" class="w-[100%] h-[100%] rounded-[50%] object-cover" />
             </div>

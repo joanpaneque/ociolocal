@@ -12,10 +12,9 @@ const form = useForm({
 });
 
 const submit = () => {
-    console.log("aaas");
-    // form.post(route('login'), {
-    //     onFinish: () => form.reset('password'),
-    // });
+    form.post(route('login'), {
+        onFinish: () => form.reset('password'),
+    });
 };
 </script>
 
