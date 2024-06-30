@@ -1,9 +1,11 @@
 <script setup>
 import { ref } from 'vue';
-import { Head } from '@inertiajs/vue3';
+import { Head, usePage } from '@inertiajs/vue3';
 import Section from '@/Components/Section.vue';
 import ActivityThumbnail from '@/Components/ActivityThumbnail.vue';
 import CategoryThumbnail from '@/Components/CategoryThumbnail.vue';
+import NavigationBar from '@/Components/NavigationBar.vue';
+
 
 
 
@@ -147,23 +149,6 @@ setInterval(() => {
 
         </Section>
     </main>
-    <nav class="sticky bottom-0 w-full bg-white shadow-inner pb-5">
-        <div class="flex justify-around items-center h-[60px] pr-4 pl-4 gap-5">
-            <div class="flex gap-[2px] items-center flex-col">
-                <img src="/assets/icons/qr.svg" alt="Booking icon" class="w-[20px]" />
-                <h2 class="text-[12px] font-bold">Reservas</h2>
-            </div>
-            <div class="flex gap-[2px] items-center flex-col">
-                <img src="/assets/icons/fire.svg" alt="Booking icon" class="w-[20px]" />
-                <h2 class="text-[12px] font-bold">Ofertas</h2>
-            </div>
-            <div class="flex gap-[2px] items-center flex-col">
-                <img src="/assets/icons/search.svg" alt="Booking icon" class="w-[20px]" />
-                <h2 class="text-[12px] font-bold">Buscar</h2>
-            </div>
-            <div class="w-[40px] h-[40px] rounded-[50%]">
-                <img src="/assets/welcome/profile.jpg" alt="Profile icon" class="w-[100%] h-[100%] rounded-[50%] object-cover" />
-            </div>
-        </div>
-    </nav>
+    <NavigationBar />
+
 </template>
