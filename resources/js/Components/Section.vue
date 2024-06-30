@@ -16,7 +16,7 @@ const props = defineProps({
 <template>
     <section class="mb-8">
         <div class="grid items-center justify-between mb-4 grid-cols-[auto,1fr]">
-            <h2 class="text-[20px] font-[700]">
+            <h2 class="text-[26px] font-[700]">
                 {{ title }}
             </h2>
             <div class="text-[12px] leading-[1] text-right font-bold">

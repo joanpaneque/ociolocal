@@ -98,7 +98,7 @@ setInterval(() => {
     </header>
     <main class="flex flex-col pr-4 pl-4">
         <Section title="Descuentos + TOP 🔥" secondary="02:35:13h restantes">
-            <div class="flex gap-3 overflow-x-auto w-full">
+            <div class="flex gap-3 overflow-x-auto w-full pb-2">
                 <ActivityThumbnail
                     :activity="{ name: 'SkyDive Empuriabrava', discount: '7% de descuento', thumbnail: '/assets/welcome/skydive.jpg' }" />
                 <ActivityThumbnail
@@ -118,7 +118,7 @@ setInterval(() => {
             </div>
         </Section>
         <Section title="¿Qué te apetece?">
-            <div class="flex gap-3 overflow-x-auto w-full">
+            <div class="flex gap-3 overflow-x-auto w-full pb-2">
                 <CategoryThumbnail
                     :category="{ name: 'Volar por los aires', emoji: '🪂', thumbnail: '/assets/welcome/skydive_thumb.jpg' }" />
                 <CategoryThumbnail
