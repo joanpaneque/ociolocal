@@ -147,7 +147,7 @@ setInterval(() => {
 
         </Section>
     </main>
-    <nav class="sticky bottom-0 w-full bg-white shadow-inner">
+    <nav class="sticky bottom-0 w-full bg-white shadow-inner pb-5">
         <div class="flex justify-around items-center h-[60px] pr-4 pl-4 gap-5">
             <div class="flex gap-[2px] items-center flex-col">
                 <img src="/assets/icons/qr.svg" alt="Booking icon" class="w-[20px]" />
