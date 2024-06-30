@@ -10,8 +10,8 @@ const props = defineProps({
 </script>
 
 <template>
-    <div class="w-[56px] flex-shrink-0">
-        <div class="h-[56px] rounded drop-shadow-md">
+    <div class="w-[75px] flex-shrink-0">
+        <div class="h-[75px] rounded drop-shadow-md mb-1">
             <img :src="category.thumbnail" alt="Activity thumbnail"
                 class="w-full h-full object-cover rounded-[10px]">
         </div>
