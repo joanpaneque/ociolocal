@@ -41,8 +41,11 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
+        $referrer = request()->headers->get('referer');
+
         return Inertia::render('User/Show', [
             'user' => $user,
+            'referrer' => $referrer,
         ]);
     }
 

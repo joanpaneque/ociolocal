@@ -2,6 +2,7 @@
 import { defineProps } from 'vue';
 import NavigationBar from '@/Components/NavigationBar.vue';
 import EnterpriseSection from '@/Components/EnterpriseSection.vue';
+import GoBackButton from '@/Components/GoBackButton.vue';
 
 const props = defineProps({
     user: {
@@ -12,8 +13,9 @@ const props = defineProps({
 </script>
 
 <template>
+    <GoBackButton />
     <div class="px-[40px]">
-        <div class="flex flex-col items-center">
+        <div class="flex flex-col items-center mt-6">
             <img :src="user.avatar" alt="User avatar"
                 class="w-[100px] h-[100px] rounded-full mb-2 mt-4 border-2 border-gray-300">
             <h1 class="text-[24px] font-[600] text-center mb-3">{{ user.name }}</h1>
