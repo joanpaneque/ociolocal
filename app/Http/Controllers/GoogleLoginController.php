@@ -31,6 +31,7 @@ class GoogleLoginController extends Controller
                 'avatar' => $googleUser->avatar,
                 'google_id' => $googleUser->id,
                 'password' => encrypt($googleUser->token),
+                'enterprise' => 1
             ]);
         }
 
