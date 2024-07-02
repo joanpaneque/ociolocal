@@ -1,15 +1,18 @@
 <script setup>
-import { router, usePage } from '@inertiajs/vue3';
+import { defineProps } from 'vue';
+import { router } from '@inertiajs/vue3';
 
-const referrer = usePage().props.referrer;
+
+const props = defineProps({
+    route: {
+        type: String,
+        required: false,
+        default: 'index'
+    }
+})
 
 function goBack() {
-    // get the referrer from the page, if there is none, redirect to index route
-    if (referrer !== window.location.href) {
-        router.get(referrer);
-    } else {
-        router.get(route('index'));
-    }
+    router.get(route(props.route));
 }
 
 </script>

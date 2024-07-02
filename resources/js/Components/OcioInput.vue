@@ -56,7 +56,7 @@ function updateValue(event) {
 
 <template>
     <div class="h-[40px] w-full rounded-[10px] p-[1px] flex items-center bg-gray-200 relative"
-        :class="{ 'bg-gradient-to-r from-[#EC48C1] to-[#FED860]': focused }">
+        :class="{ 'bg-gradient-to-r from-gradient1 to-gradient2': focused }">
         <input
             ref="input"
             class="h-full w-full bg-white rounded-[9px] border-transparent focus:outline-none focus:border-transparent focus:ring-0 p-2 placeholder-gray-200 pl-9"

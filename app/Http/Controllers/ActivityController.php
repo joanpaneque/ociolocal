@@ -6,16 +6,15 @@ use Illuminate\Http\Request;
 
 use Inertia\Inertia;
 
-use App\Models\User;
-
-class UserController extends Controller
+class ActivityController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($user)
     {
-        //
+        return Inertia::render('Activities/Index', [
+        ]);
     }
 
     /**
@@ -39,11 +38,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        $user = User::find($id);
-
-        return Inertia::render('Users/Show', [
-            'user' => $user
-        ]);
+        //
     }
 
     /**

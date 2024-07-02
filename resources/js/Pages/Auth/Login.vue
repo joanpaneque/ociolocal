@@ -34,7 +34,7 @@ const submit = () => {
             <OcioSubmit>Iniciar sesión</OcioSubmit>
         </form>
         <div class="flex justify-center align-center mt-4">
-            <Link :href="route('register')" class="text-[13px] text-pink-500 underline">He olvidado mi contraseña</Link>
+            <Link :href="route('register')" class="text-[13px] text-gradient2 underline">He olvidado mi contraseña</Link>
         </div>
         <GoogleLogin />
     </div>

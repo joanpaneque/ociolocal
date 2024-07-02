@@ -25,8 +25,8 @@ console.log(currentRoute);
                 <h2 class="text-[12px] font-bold">Buscar</h2>
             </div>
             <div
-                @click="router.get(route('user.show', user.id))"
-                :style="{ borderColor: currentRoute === 'user.show' ? '#EC48C1' : 'lightgray' }"
+                @click="router.get(route('users.show', user.id))"
+                :class="{ 'border-[2px] border-gradient2': currentRoute === 'users.show' }"
                 class="w-[40px] h-[40px] rounded-[50%] border-spacing-8 border-2 border-gray-300 overflow-hidden">
                 <img :src="user.avatar"
                 alt="User avatar" class="w-[100%] h-[100%] rounded-[50%] object-cover" />
@@ -44,8 +44,8 @@ console.log(currentRoute);
             <div class="flex gap-[15px] items-center">
                 <button
                 @click="router.get(route('login'))"
-                class="bg-gradient-to-r from-pink-500 to-orange-400 text-white rounded-[10px] p-2">Acceder</button>
-                <button class="bg-gradient-to-r from-orange-400 to-fuchsia-400 text-white rounded-[10px] p-2">Registrarme</button>
+                class="bg-gradient-to-r from-gradient1 to-gradient2 text-white rounded-[10px] p-2">Acceder</button>
+                <button class="bg-gradient-to-r from-gradient2 to-gradient1 text-white rounded-[10px] p-2">Registrarme</button>
             </div>
         </div>
     </nav>
