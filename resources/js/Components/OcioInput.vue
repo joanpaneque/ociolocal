@@ -37,6 +37,10 @@ const props = defineProps({
         type: Boolean,
         required: false,
         default: false
+    },
+    pattern: {
+        type: String,
+        required: false
     }
 })
 
@@ -51,15 +55,15 @@ onMounted(() => {
 function updateValue(event) {
     emits('update:modelValue', event.target.value);
 }
-
 </script>
 
 <template>
     <div class="h-[40px] w-full rounded-[10px] p-[1px] flex items-center bg-gray-200 relative"
-        :class="{ 'bg-gradient-to-r from-gradient1 to-gradient2': focused }">
+        :class="{ 'bg-gradient-to-r from-gradient1 to-gradient2': focused || modelValue }">
         <input
+            :pattern="pattern"
             ref="input"
-            class="h-full w-full bg-white rounded-[9px] border-transparent focus:outline-none focus:border-transparent focus:ring-0 p-2 placeholder-gray-200 pl-9"
+            class="h-full w-full bg-white rounded-[9px] border-transparent focus:outline-none focus:border-transparent focus:ring-0 p-2 placeholder-gray-400 pl-9"
             :type="type" :placeholder="placeholder" :v-model="value" @focus="focused = true" @blur="focused = false" :autofocus="autofocus"
             @input="updateValue" />
         <img :src="icon" alt="Input icon" class="w-[20px] h-[20px] ml-2 absolute" />

@@ -14,8 +14,8 @@ const props = defineProps({
 </script>
 
 <template>
-    <GoBackButton route="index" />
-    <div class="px-[40px]">
+    <GoBackButton :route="route('index')" :occupySpace="false" />
+    <div class="px-[40px] z-50">
         <div class="flex flex-col items-center mt-6">
             <img :src="user.avatar" alt="User avatar"
                 class="w-[100px] h-[100px] rounded-full mb-2 mt-4 border-2 border-gray-300">
@@ -38,9 +38,9 @@ const props = defineProps({
         <div class="rect-grid mt-4">
             <EnterpriseSection
                 v-if="user.enterprise"
-                @click="router.get(route('users.activities.index', user.id))"
-                icon="/assets/icons/island_tropical.svg"
-                title="Mis actividades"
+                @click="router.get(route('users.companies.index', user.id))"
+                icon="/assets/icons/rocket-lunch.svg"
+                title="Mis empresas"
             />
 
             <EnterpriseSection v-if="user.enterprise" icon="/assets/icons/euro.svg"

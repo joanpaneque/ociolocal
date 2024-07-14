@@ -8,6 +8,13 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\GoogleLoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\QRCodeController;
+use App\Http\Controllers\TestController;
+
+
+
+Route::get('/test', [TestController::class, 'index'])->name('test.index');
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 
@@ -32,15 +39,15 @@ Route::delete('/users/{user}', [UserController::class, 'destroy'])->middleware('
 
 
 /*
-*   /users/{user}/activities
+*   /users/{user}/companies
 */
-Route::get('/users/{user}/activities', [ActivityController::class, 'index'])->middleware('auth')->name('users.activities.index');
-Route::get('/users/{user}/activities/create', [activitiesController::class, 'create'])->middleware('auth')->name('users.activities.create');
-Route::post('/users/{user}/activities', [activitiesController::class, 'store'])->middleware('auth')->name('users.activities.store');
-Route::get('/users/{user}/activities/{activity}', [activitiesController::class, 'show'])->middleware('auth')->name('users.activities.show');
-Route::get('/users/{user}/activities/{activity}/edit', [activitiesController::class, 'edit'])->middleware('auth')->name('users.activities.edit');
-Route::put('/users/{user}/activities/{activity}', [activitiesController::class, 'update'])->middleware('auth')->name('users.activities.update');
-Route::delete('/users/{user}/activities/{activity}', [activitiesController::class, 'destroy'])->middleware('auth')->name('users.activities.destroy');
+Route::get('/users/{user}/companies', [CompanyController::class, 'index'])->middleware('auth')->name('users.companies.index');
+Route::get('/users/{user}/companies/create', [CompanyController::class, 'create'])->middleware('auth')->name('users.companies.create');
+Route::post('/users/{user}/companies', [CompanyController::class, 'store'])->middleware('auth')->name('users.companies.store');
+Route::get('/users/{user}/companies/{activity}', [CompanyController::class, 'show'])->middleware('auth')->name('users.companies.show');
+Route::get('/users/{user}/companies/{activity}/edit', [CompanyController::class, 'edit'])->middleware('auth')->name('users.companies.edit');
+Route::put('/users/{user}/companies/{activity}', [CompanyController::class, 'update'])->middleware('auth')->name('users.companies.update');
+Route::delete('/users/{user}/companies/{activity}', [CompanyController::class, 'destroy'])->middleware('auth')->name('users.companies.destroy');
 
 
 
