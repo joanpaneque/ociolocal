@@ -44,10 +44,10 @@ Route::delete('/users/{user}', [UserController::class, 'destroy'])->middleware('
 Route::get('/users/{user}/companies', [CompanyController::class, 'index'])->middleware('auth')->name('users.companies.index');
 Route::get('/users/{user}/companies/create', [CompanyController::class, 'create'])->middleware('auth')->name('users.companies.create');
 Route::post('/users/{user}/companies', [CompanyController::class, 'store'])->middleware('auth')->name('users.companies.store');
-Route::get('/users/{user}/companies/{activity}', [CompanyController::class, 'show'])->middleware('auth')->name('users.companies.show');
-Route::get('/users/{user}/companies/{activity}/edit', [CompanyController::class, 'edit'])->middleware('auth')->name('users.companies.edit');
-Route::put('/users/{user}/companies/{activity}', [CompanyController::class, 'update'])->middleware('auth')->name('users.companies.update');
-Route::delete('/users/{user}/companies/{activity}', [CompanyController::class, 'destroy'])->middleware('auth')->name('users.companies.destroy');
+Route::get('/users/{user}/companies/{company}', [CompanyController::class, 'show'])->middleware('auth')->name('users.companies.show');
+Route::get('/users/{user}/companies/{company}/edit', [CompanyController::class, 'edit'])->middleware('auth')->name('users.companies.edit');
+Route::put('/users/{user}/companies/{company}', [CompanyController::class, 'update'])->middleware('auth')->name('users.companies.update');
+Route::delete('/users/{user}/companies/{company}', [CompanyController::class, 'destroy'])->middleware('auth')->name('users.companies.destroy');
 
 
 

@@ -14,8 +14,16 @@ class Company extends Model
 
     protected $fillable = [
         'user_id',
-        'name',
-        'description'
+        'company_name',
+        'company_email',
+        'company_phone',
+        'company_address',
+        'company_nif',
+        'legal_representative_name',
+        'legal_representative_email',
+        'legal_representative_phone',
+        'iban',
+        'image'
     ];
 
     protected static function boot()
