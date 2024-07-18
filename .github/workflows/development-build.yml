@@ -78,5 +78,7 @@ jobs:
             mkdir -p bootstrap/cache
             chmod -R 775 bootstrap/cache
             chown -R www-data:www-data bootstrap/cache
+            chown -R www-data:www-data public
+            chmod -R 775 public
             php artisan optimize:clear
             php artisan inertia:start-ssr
