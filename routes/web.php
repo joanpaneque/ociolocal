@@ -50,5 +50,16 @@ Route::put('/users/{user}/companies/{company}', [CompanyController::class, 'upda
 Route::delete('/users/{user}/companies/{company}', [CompanyController::class, 'destroy'])->middleware('auth')->name('users.companies.destroy');
 
 
+/*
+*   /users/{user}/companies/{company}/activities
+*/
+Route::get('/users/{user}/companies/{company}/activities', [ActivityController::class, 'index'])->middleware('auth')->name('users.companies.activities.index');
+Route::get('/users/{user}/companies/{company}/activities/create', [ActivityController::class, 'create'])->middleware('auth')->name('users.companies.activities.create');
+Route::post('/users/{user}/companies/{company}/activities', [ActivityController::class, 'store'])->middleware('auth')->name('users.companies.activities.store');
+Route::get('/users/{user}/companies/{company}/activities/{activity}', [ActivityController::class, 'show'])->middleware('auth')->name('users.companies.activities.show');
+Route::get('/users/{user}/companies/{company}/activities/{activity}/edit', [ActivityController::class, 'edit'])->middleware('auth')->name('users.companies.activities.edit');
+Route::put('/users/{user}/companies/{company}/activities/{activity}', [ActivityController::class, 'update'])->middleware('auth')->name('users.companies.activities.update');
+Route::delete('/users/{user}/companies/{company}/activities/{activity}', [ActivityController::class, 'destroy'])->middleware('auth')->name('users.companies.activities.destroy');
+
 
 require __DIR__.'/auth.php';

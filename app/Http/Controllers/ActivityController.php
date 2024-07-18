@@ -6,23 +6,29 @@ use Illuminate\Http\Request;
 
 use Inertia\Inertia;
 
+use App\Models\User;
+use App\Models\Company;
+
 class ActivityController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index($user)
+    public function index(User $user, Company $company)
     {
         return Inertia::render('Activities/Index', [
+            'company' => $company
         ]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(User $user, Company $company)
     {
-        //
+        return Inertia::render('Activities/Create', [
+            'company' => $company
+        ]);
     }
 
     /**

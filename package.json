@@ -17,7 +17,8 @@
         "vite": "^5.0"
     },
     "dependencies": {
-        "vue": "^3.4.29",
-        "@inertiajs/vue3": "^1.0.0"
+        "@inertiajs/vue3": "^1.0.0",
+        "cally": "^0.7.1",
+        "vue": "^3.4.29"
     }
 }

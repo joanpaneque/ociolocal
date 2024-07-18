@@ -2,6 +2,7 @@
 import { defineProps } from 'vue';
 import { router } from '@inertiajs/vue3';
 import GoBackButton from '@/Components/GoBackButton.vue';
+import OcioButton from '@/Components/OcioButton.vue';
 
 const props = defineProps({
     companies: {
@@ -15,11 +16,7 @@ const props = defineProps({
 <template>
     <GoBackButton :route="route('users.show', $page.props.auth.user.id)" title="Mis empresas" />
     <div class="px-[40px] w-full">
-        <button
-            @click="router.get(route('users.companies.create', $page.props.auth.user.id))"
-            class="h-[45px] w-full bg-gradient-to-r from-gradient1 to-gradient2 text-white font-semibold rounded-[9px]">
-            Crear empresa
-        </button>
+        <OcioButton text="Crear empresa" @click="router.get(route('users.companies.create', $page.props.auth.user.id))" />
         <div class="mt-3 flex flex-col gap-3">
             <div
                 v-for="company in companies"
