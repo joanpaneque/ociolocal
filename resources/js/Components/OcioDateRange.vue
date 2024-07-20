@@ -26,8 +26,6 @@ const tentative = ref(null);
 const minDate = ref(getCurrentDate());
 const calendarValue = ref(null);
 
-
-
 function getCurrentDate() {
     return new Date().toISOString().split('T')[0];
 }
@@ -79,6 +77,9 @@ function handleDateStartClick() {
     if (!date_start.value) {
         open.value = !open.value;
     } else {
+        if (date_start && date_end) {
+            tentative.value = null;
+        }
         selectingSeasonRange.value = false;
         date_start.value = null;
         date_end.value = null;
@@ -95,8 +96,9 @@ function handleDateEndClick() {
         open.value = !open.value;
         if (!date_end.value) {
             tentative.value = date_start.value;
+            selectingSeasonRange.value = true;
         } else {
-            // calendarValue.value = `${date_start.value}/${date_end.value}`;
+            calendarValue.value = `${date_start.value}/${date_end.value}`;
         }
     }
 }
@@ -142,7 +144,7 @@ function handleDateEndClick() {
                     <span v-else>{{ humanizeDate(date_end) }}</span>
                 </div>
                 <div class="flex gap-2 items-center">
-                    <img src="/assets/icons/dropdown.svg" alt="icon" class="w-[17px] h-[17px]" :class="{'invert': date_end, 'rotate-180': date_start}"/>
+                    <img src="/assets/icons/dropdown.svg" alt="icon" class="w-[17px] h-[17px]" :class="{'invert': date_end, 'rotate-180': date_start && open}"/>
                 </div>
             </div>
         </div>
@@ -169,8 +171,18 @@ function handleDateEndClick() {
         padding: 7px;
     }
 
+    ::part(button day) {
+        border-radius: 10px;
+        width: calc(100% - 5px)
+    }
+
+    ::part(button day range-end),
+    ::part(button day range-start) {
+        background: var(--gradient2);
+    }
+
     calendar-month {
-    --color-accent: var(--gradient2);
+    --color-accent: var(--gradient1);
     --color-text-on-accent: #ffffff;
 
   }
