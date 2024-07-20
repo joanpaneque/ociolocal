@@ -14,3 +14,9 @@
     min-height: 100vh;
     position: relative;
 }
+
+/* Create CSS variables for colors red and blue */
+:root {
+    --gradient1: #86D887;
+    --gradient2: #2DAFA6;
+}
