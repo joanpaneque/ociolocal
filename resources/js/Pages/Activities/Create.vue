@@ -57,16 +57,18 @@ const contributionEmojis = {
     '90': '🤯💥💥💥🤯',
     '95': '🤯🤯💥🤯🤯',
     '100': '🤯🤯🤯🤯🤯'
-
-
-
-
 }
 
 function getContributionEmoji(contribution) {
     let contribution_emojis = Object.keys(contributionEmojis);
     let closest = contribution_emojis.reduce((prev, curr) => Math.abs(curr - contribution) < Math.abs(prev - contribution) ? curr : prev);
     return contributionEmojis[closest];
+}
+
+function getCheapestTicket() {
+    if (form.ticket_types.length === 0) return null;
+    if (form.ticket_types.some(ticket => !ticket.price)) return null;
+    return form.ticket_types.reduce((prev, curr) => prev.price < curr.price ? prev : curr);
 }
 
 
@@ -127,19 +129,25 @@ function getContributionEmoji(contribution) {
                 <OcioButton class="mt-3" text="Nuevo tipo de entrada"
                     @click="form.ticket_types.push({ name: null, price: null })" />
             </div>
-            <div>
-                <h2 class="font-bold mt-2">Contribución a Ocio Local</h2>
+            <div class="mt-6">
+                <h2 class="font-bold mb-2">Contribución a Ocio Local</h2>
+                <div class="flex justify-center">
                 <button
                     @click="isOpenContributionModal = true"
-                    class="font-bold bg-gradient-to-r from-teal-500 to-teal-600 underline text-white rounded-[10px] p-[1px] w-[200px] h-[40px]">Por
+                    class="mb-4 font-bold bg-gradient-to-r from-teal-500 to-teal-600 underline text-white rounded-[10px] p-[1px] w-[200px] h-[40px]">Por
                     favor, lee esto</button>
+                </div>
                 <OcioContribution v-model="form.contribution" />
-                <div class="text-[40px]">
-                    <div>
+                <div class="text-[40px] grid justify-center">
+                    <div class="text-center">
                         {{form.contribution.replace('.',',')}} %
                     </div>
-                    <div>
+                    <div class="text-center">
                         {{ getContributionEmoji(form.contribution) }}
+                    </div>
+                    <div v-if="getCheapestTicket()" class="text-center text-[16px]">
+                        Por cada <strong>{{getCheapestTicket().name}}</strong>, Ocio Local recibirá
+                        {{ (getCheapestTicket().price * (form.contribution / 100)).toFixed(2) }} €
                     </div>
                 </div>
                 
