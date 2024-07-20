@@ -133,14 +133,14 @@ watch(() => props.minHour, () => {
             v-if="open"
             class="absolute h-[140px] w-[100px] bg-gradient-to-r from-gradient1 to-gradient2 rounded-[10px] mt-1 p-[1px] z-50">
             <div class="w-full h-full bg-white rounded-[9px] grid grid-cols-2 gap-1 p-2">
-                <div class="grid h-full min-h-fit overflow-scroll">
+                <div class="grid max-h-full min-h-fit overflow-scroll">
                     <div v-for="hour in hours" v-show="hour >= minHour.split(':')[0]" @click="handleHourSelect(hour)"
                         :class="selectedHour === hour ? 'bg-gradient-to-r from-gradient1 to-gradient2 text-white' : 'bg-white'"
                         class="h-[30px] w-[30px] flex items-center justify-center rounded-[10px]">
                         {{ hour }}
                     </div>
                 </div>
-                <div class="grid h-full min-h-fit overflow-scroll">
+                <div class="grid max-h-full min-h-fit overflow-scroll">
                     <div v-for="minute in minutes"
                         @click="handleMinuteSelect(minute)"
                         v-show="minuteCanBeDisplayed(minute)"
