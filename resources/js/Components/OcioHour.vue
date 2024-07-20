@@ -108,7 +108,6 @@ watch(() => props.minHour, () => {
             class="w-full h-full bg-gradient-to-r from-gradient1 to-gradient2 rounded-[10px] flex items-center justify-around p-[1px]">
             <div class="w-full h-full rounded-[9px] flex items-center justify-center"
                 :class="selectedHour && selectedMinute ? 'bg-transparent text-white' : 'bg-white text-gradient2'">
-                <!-- <div>{{ hour ?? '---' }}</div> -->
                 <div v-if="selectedHour && !selectedMinute">
                     {{ selectedHour }}:--
                 </div>

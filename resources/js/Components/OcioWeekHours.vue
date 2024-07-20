@@ -28,6 +28,7 @@ const dayRefs = {
 };
 
 const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+const days_translated = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 
 const currentHours = computed(() => dayRefs[selected_day.value].value);
 
@@ -61,7 +62,7 @@ function canAddHour(day) {
             class="h-[30px] w-[50px] flex justify-center items-center p-[1px] rounded-[10px]">
             <div :class="selected_day === day ? 'bg-transparent text-white' : 'bg-white'"
                 class="w-full h-full flex items-center justify-center rounded-[9px]">
-                {{ day.charAt(0).toUpperCase() + day.slice(1, 3) }}
+                {{ days_translated[days.indexOf(day)].substring(0, 3) }}
             </div>
         </div>
     </div>

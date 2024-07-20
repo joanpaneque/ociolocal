@@ -44,6 +44,8 @@ const props = defineProps({
     }
 })
 
+const value = ref(props.modelValue);
+
 
 onMounted(() => {
     if (props.autofocus) {
@@ -54,6 +56,7 @@ onMounted(() => {
 
 function updateValue(event) {
     emits('update:modelValue', event.target.value);
+    value.value = event.target.value;
 }
 </script>
 
@@ -63,7 +66,7 @@ function updateValue(event) {
         <input
             ref="input"
             class="h-full w-full bg-white rounded-[9px] border-transparent focus:outline-none focus:border-transparent focus:ring-0 p-2 placeholder-gray-400 pl-9"
-            :type="type" :placeholder="placeholder" @focus="focused = true" @blur="focused = false" :autofocus="autofocus"
+            :type="type" :placeholder="placeholder" @focus="focused = true" @blur="focused = false" :autofocus="autofocus" v-model="value"
             @input="updateValue" />
         <img :src="icon" alt="Input icon" class="w-[20px] h-[20px] ml-2 absolute" />
     </div>
