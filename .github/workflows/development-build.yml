@@ -65,10 +65,9 @@ jobs:
             sed -i "s/DB_PASSWORD=.*/DB_PASSWORD=${{ secrets.DB_PASSWORD }}/" .env
             sed -i "s/GOOGLE_CLIENT_ID=.*/GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}/" .env
             sed -i "s/GOOGLE_CLIENT_SECRET=.*/GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}/" .env
-
-            # mysql -u ${{ secrets.DB_USERNAME }} -p${{ secrets.DB_PASSWORD }} -e "DROP DATABASE IF EXISTS ${{ secrets.DB_DATABASE }}; CREATE DATABASE ${{ secrets.DB_DATABASE }};"
-            # php artisan migrate --force
-            # php artisan db:seed --force
+            mysql -u ${{ secrets.DB_USERNAME }} -p${{ secrets.DB_PASSWORD }} -e "DROP DATABASE IF EXISTS ${{ secrets.DB_DATABASE }}; CREATE DATABASE ${{ secrets.DB_DATABASE }};"
+            php artisan migrate --force
+            php artisan db:seed --force
             php artisan config:cache
             php artisan key:generate --force
             php artisan config:cache
