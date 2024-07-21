@@ -27,6 +27,14 @@ class DatabaseSeeder extends Seeder
             'email' => 'test2@example.com'
         ]);
 
+        User::create([
+            'avatar' => '/assets/default/XD.jpg',
+            'enterprise' => 1,
+            'name' => 'Nuria Vega Design',
+            'email' => 'contact@nuriavegadesign.com',
+            'password' => 'password1223334444',
+        ]);
+
 
         Company::create([
             'user_id' => 1,
@@ -40,6 +48,20 @@ class DatabaseSeeder extends Seeder
             'legal_representative_phone' => '123456789',
             'iban' => 'ES123456789',
             'image' => '/assets/default/chic.png'
+        ]);
+
+        Company::create([
+            'user_id' => 3,
+            'company_name' => 'Nuria Vega Design',
+            'company_email' => 'contact@nuriavegadesign.com',
+            'company_phone' => '123456789',
+            'company_address' => 'Calle Anonima',
+            'company_nif' => '12345678A',
+            'legal_representative_name' => 'Nuria Vega Design',
+            'legal_representative_email' => 'contact@nuriavegadesign.com',
+            'legal_representative_phone' => '123456789',
+            'iban' => 'ES123456789',
+            'image' => '/assets/default/nuriavegadesign.png',
         ]);
     }
 }
