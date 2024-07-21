@@ -36,34 +36,12 @@ const form = useForm({
         'name': "Entrada general",
         'price': null
     }],
-    'contribution': '1'
+    'contribution': '10'
 });
 
 const isOpenContributionModal = ref(false);
 
-const contributionEmojis = {
-    '0': '😢',
-    '1': '😐',
-    '5': '🙂',
-    '10': '😄',
-    '15': '😆',
-    '20': '😁',
-    '25': '😁❤️',
-    '35': '😁❤️🎉❤️😁',
-    // explosion
-    '50': '💥❤️😁❤️💥',
-    '75': '💥💥❤️💥💥',
-    '85': '💥💥💥💥💥',
-    '90': '🤯💥💥💥🤯',
-    '95': '🤯🤯💥🤯🤯',
-    '100': '🤯🤯🤯🤯🤯'
-}
 
-function getContributionEmoji(contribution) {
-    let contribution_emojis = Object.keys(contributionEmojis);
-    let closest = contribution_emojis.reduce((prev, curr) => Math.abs(curr - contribution) < Math.abs(prev - contribution) ? curr : prev);
-    return contributionEmojis[closest];
-}
 
 function getCheapestTicket() {
     if (form.ticket_types.length === 0) return null;
@@ -138,18 +116,10 @@ function getCheapestTicket() {
                     favor, lee esto</button>
                 </div>
                 <OcioContribution v-model="form.contribution" />
-                <div class="text-[40px] grid justify-center">
-                    <div class="text-center">
-                        {{form.contribution.replace('.',',')}} %
-                    </div>
-                    <div class="text-center">
-                        {{ getContributionEmoji(form.contribution) }}
-                    </div>
-                    <div v-if="getCheapestTicket()" class="text-center text-[16px]">
-                        Por cada <strong>{{getCheapestTicket().name}}</strong>, Ocio Local recibirá
-                        {{ (getCheapestTicket().price * (form.contribution / 100)).toFixed(2) }} €
-                    </div>
-                </div>
+                <div v-if="getCheapestTicket()" class="text-center text-[16px]">
+            Por cada <strong>{{ getCheapestTicket().name }}</strong>, Ocio Local recibirá aproximadamente
+            {{ (getCheapestTicket().price / 1.0325 * (form.contribution / 100)).toFixed(2) }} €
+        </div>
                 
 
 
@@ -167,7 +137,7 @@ function getCheapestTicket() {
         <p>Soy Joan, tengo 19 años y soy la unica persona que desarrolla y mantiene esta plataforma. Le dedico
             muchas horas y esfuerzo, por lo que agradecería mucho tu colaboración para poder seguir adelante con
             este proyecto. Si te gusta lo que hago y mi aplicación es util para {{ company.company_name }} puedes
-            aportar a partir de un
-            1% de las ventas de esta actividad a Ocio Local. ¡Gracias! ❤️</p>
+            aportar al menos un
+            10% de las ventas de esta actividad a Ocio Local. ¡Gracias! ❤️</p>
     </OcioModal>
 </template>

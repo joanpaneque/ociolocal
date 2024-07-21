@@ -12,6 +12,8 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\QRCodeController;
 use App\Http\Controllers\TestController;
 
+use App\Http\Controllers\PriceController;
+
 
 
 Route::get('/test', [TestController::class, 'index'])->name('test.index');
@@ -60,6 +62,11 @@ Route::get('/users/{user}/companies/{company}/activities/{activity}', [ActivityC
 Route::get('/users/{user}/companies/{company}/activities/{activity}/edit', [ActivityController::class, 'edit'])->middleware('auth')->name('users.companies.activities.edit');
 Route::put('/users/{user}/companies/{company}/activities/{activity}', [ActivityController::class, 'update'])->middleware('auth')->name('users.companies.activities.update');
 Route::delete('/users/{user}/companies/{company}/activities/{activity}', [ActivityController::class, 'destroy'])->middleware('auth')->name('users.companies.activities.destroy');
+
+
+
+Route::post('/create-price', [PriceController::class, 'createProductAndPrice']);
+Route::post('/update-price', [PriceController::class, 'updatePrice']);
 
 
 require __DIR__.'/auth.php';

@@ -27,7 +27,7 @@ const props = defineProps({
             </div>
             <div v-else class="flex items-center flex-col gap-1">
                 <div
-                    class="text-[15px] w-fit text-white bg-gradient-to-r from-[#d8d8d8] to-[#9b9b9b] px-3 py-1 font-semibold rounded-2xl gap-2">
+                    class="text-[15px] w-fit text-black bg-white px-3 py-1 font-semibold rounded-2xl gap-2 border-[1px] border-black">
                     Basic</div>
                 <div class="underline text-gray-600">Solicitar cuenta <span
                         class="bg-clip-text text-transparent bg-gradient-to-r from-gradient1 to-gradient2">enterprise</span>
