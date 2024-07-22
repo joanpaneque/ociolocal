@@ -1,9 +1,9 @@
 <script setup>
+import { route } from "ziggy-js";
 import { usePage, router } from '@inertiajs/vue3';
 const user = usePage().props.auth.user;
 const currentRoute = route().current();
 
-console.log(currentRoute);
 
 </script>
 
