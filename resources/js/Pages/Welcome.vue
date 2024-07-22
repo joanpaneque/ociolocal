@@ -163,6 +163,6 @@ setInterval(() => {
 
         </Section>
     </main>
-    <NavigationBar />
+    <NavigationBar active="index" />
 
 </template>

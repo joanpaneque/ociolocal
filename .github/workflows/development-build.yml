@@ -80,4 +80,4 @@ jobs:
             chown -R www-data:www-data public
             chmod -R 775 public
             php artisan optimize:clear
-            php artisan inertia:start-ssr
+            ./SSR.sh

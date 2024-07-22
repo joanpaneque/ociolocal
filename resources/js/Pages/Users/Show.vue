@@ -49,7 +49,7 @@ const props = defineProps({
                 title="Escanear entradas" />
         </div>
     </div>
-    <NavigationBar />
+    <NavigationBar active="profile" />
 </template>
 
 
