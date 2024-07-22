@@ -80,4 +80,5 @@ jobs:
             chown -R www-data:www-data public
             chmod -R 775 public
             php artisan optimize:clear
+            chmod +x SSR.sh
             ./SSR.sh
