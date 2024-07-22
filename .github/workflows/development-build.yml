@@ -81,4 +81,4 @@ jobs:
             chmod -R 775 public
             php artisan optimize:clear
             chmod +x SSR.sh
-            ./SSR.sh
+            screen -dmS ssr_session ./SSR.sh
