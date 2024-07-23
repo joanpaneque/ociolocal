@@ -25,13 +25,15 @@ const form = useForm({
     'date_start': null,
     'date_end': null,
     'date_event': null,
-    'hours_monday': [],
-    'hours_tuesday': [],
-    'hours_wednesday': [],
-    'hours_thursday': [],
-    'hours_friday': [],
-    'hours_saturday': [],
-    'hours_sunday': [],
+    'weekly_schedule': {
+        'monday': [],
+        'tuesday': [],
+        'wednesday': [],
+        'thursday': [],
+        'friday': [],
+        'saturday': [],
+        'sunday': []
+    },
     'ticket_types': [{
         'name': "Entrada general",
         'price': null
@@ -72,10 +74,7 @@ function getCheapestTicket() {
                 <h2 class="mt-2 mb-1">Duración de la actividad</h2>
                 <OcioDateRange v-model:date_start="form.date_start" v-model:date_end="form.date_end" />
                 <h2 class="mt-2 mb-1">Horario semanal</h2>
-                <OcioWeekHours v-model:hours_monday="form.hours_monday" v-model:hours_tuesday="form.hours_tuesday"
-                    v-model:hours_wednesday="form.hours_wednesday" v-model:hours_thursday="form.hours_thursday"
-                    v-model:hours_friday="form.hours_friday" v-model:hours_saturday="form.hours_saturday"
-                    v-model:hours_sunday="form.hours_sunday" />
+                <OcioWeekHours v-model="form.weekly_schedule" />
             </div>
             <div v-else>
             </div>

@@ -6,9 +6,6 @@ import ActivityThumbnail from '@/Components/ActivityThumbnail.vue';
 import CategoryThumbnail from '@/Components/CategoryThumbnail.vue';
 import NavigationBar from '@/Components/NavigationBar.vue';
 
-
-
-
 const placeholders = [
     "Plan para el fin de semana",
     "Actividades en familia",
@@ -84,7 +81,24 @@ setInterval(() => {
 </script>
 
 <template>
-    <Head title="Bienvenido" />
+    <Head>
+        <title>OcioLocal | Actividades de Ocio en la Costa Brava</title>
+        <meta name="description" content="Reserva actividades online a un precio más barato que en taquilla. ¡Descubre las mejores actividades de ocio en la Costa Brava!">
+
+        <meta property="og:title" content="OcioLocal | Actividades de Ocio en la Costa Brava">
+        <meta property="og:description" content="Reserva actividades online a un precio más barato que en taquilla. ¡Descubre las mejores actividades de ocio en la Costa Brava!">
+        <meta property="og:image" content="https://development.ociolocal.es/assets/welcome/header.jpg">
+        <meta property="og:url" content="https://development.ociolocal.es">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="OcioLocal">
+        <meta property="og:locale" content="es_ES">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@ociolocal">
+        <meta name="twitter:creator" content="@ociolocal">
+        <meta name="twitter:title" content="OcioLocal | Actividades de Ocio en la Costa Brava">
+        <meta name="twitter:description" content="Reserva actividades online a un precio más barato que en taquilla. ¡Descubre las mejores actividades de ocio en la Costa Brava!">
+        <meta name="twitter:image" content="https://development.ociolocal.es/assets/welcome/header.jpg">
+    </Head>
     <header class="bg-[url('/assets/welcome/header.jpg')] h-[220px] bg-cover bg-center relative mb-4">
         <div class="flex items-center justify-center h-full bg-black bg-opacity-70">
             <h1 class="text-[30px] text-white w-[260px] text-center font-[500] leading-9">
