@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, defineEmits } from 'vue';
+import { defineProps, defineEmits, watch } from 'vue';
 
 const emit = defineEmits(['close']);
 
@@ -9,6 +9,8 @@ const props = defineProps({
         default: false,
     }
 });
+
+
 
 </script>
 
@@ -20,7 +22,6 @@ const props = defineProps({
             </main>
             <footer>
                 <button @click="emit('close')">Entendido</button>
-                <!-- <button @click="emit('accept')">Acceptar</button> -->
             </footer>
         </div>
     </div>
@@ -28,7 +29,7 @@ const props = defineProps({
 
 <style scoped>
 .custom-modal-container {
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100vw;
     height: 100vh;
@@ -73,5 +74,4 @@ const props = defineProps({
 .custom-modal-container footer button:first-child {
     background: #01599cbb;
 }
-
 </style>

@@ -56,7 +56,7 @@ function getCheapestTicket() {
 <template>
     <GoBackButton :route="route('users.companies.activities.index', [$page.props.auth.user.id, company.id])"
         title="Nueva actividad" />
-    <form class="px-[40px] w-full flex flex-col gap-4"
+    <form class="px-[10%] w-full flex flex-col gap-4"
         @submit.prevent="form.post(route('users.companies.activities.store', [$page.props.auth.user.id, company.id]))">
         <div class="flex flex-col">
             <h2 class="font-bold">Información general</h2>
@@ -110,10 +110,10 @@ function getCheapestTicket() {
             <div class="mt-6">
                 <h2 class="font-bold mb-2">Contribución a Ocio Local</h2>
                 <div class="flex justify-center">
-                <button
+                <div
                     @click="isOpenContributionModal = true"
-                    class="mb-4 font-bold bg-gradient-to-r from-teal-500 to-teal-600 underline text-white rounded-[10px] p-[1px] w-[200px] h-[40px]">Por
-                    favor, lee esto</button>
+                    class="mb-4 flex justify-center items-center font-bold bg-gradient-to-r from-teal-500 to-teal-600 underline text-white rounded-[10px] p-[1px] w-[200px] h-[40px]">Por
+                    favor, lee esto</div>
                 </div>
                 <OcioContribution v-model="form.contribution" />
                 <div v-if="getCheapestTicket()" class="text-center text-[16px]">

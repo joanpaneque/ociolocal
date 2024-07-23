@@ -18,7 +18,7 @@ const props = defineProps({
     }
 });
 
-const emit = defineEmits('update:hour');
+const emit = defineEmits(['update:hour, change']);
 
 const hour = ref(props.hour);
 
@@ -29,8 +29,8 @@ const minutes = ["00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50
 
 const open = ref(false);
 
-const selectedHour = ref(null);
-const selectedMinute = ref(null);
+const selectedHour = ref(props.hour ? props.hour.split(':')[0] : null);
+const selectedMinute = ref(props.hour ? props.hour.split(':')[1] : null);
 
 function minuteCanBeDisplayed(minute) {
     if (!selectedHour.value) { // si no se ha seleccionado una hora
@@ -51,6 +51,7 @@ function handleHourSelect(hour) {
     if (selectedHour.value === hour) {
         selectedHour.value = null;
         emit('update:hour', null);
+        emit('change', null);
         return;
     }
 
@@ -64,6 +65,7 @@ function handleHourSelect(hour) {
 
     if (selectedHour.value && selectedMinute.value) {
         emit('update:hour', `${selectedHour.value}:${selectedMinute.value}`);
+        emit('change', `${selectedHour.value}:${selectedMinute.value}`);
     }
 }
 
@@ -72,6 +74,7 @@ function handleMinuteSelect(minute) {
     if (selectedMinute.value === minute) {
         selectedMinute.value = null;
         emit('update:hour', null);
+        emit('change', null);
         return;
     }
 
@@ -130,21 +133,21 @@ watch(() => props.minHour, () => {
         </div>
         <div
             v-if="open"
-            class="absolute h-[140px] w-[100px] bg-gradient-to-r from-gradient1 to-gradient2 rounded-[10px] mt-1 p-[1px] z-50">
+            class="absolute h-[140px] w-[180px] bg-gradient-to-r from-gradient1 to-gradient2 rounded-[10px] mt-1 p-[1px] z-50 left-[-50%]">
             <div class="w-full h-full bg-white rounded-[9px] grid grid-cols-2 gap-1 p-2">
-                <div class="grid max-h-full min-h-fit overflow-scroll">
+                <div class="grid max-h-full min-h-fit overflow-y-scroll">
                     <div v-for="hour in hours" v-show="hour >= minHour.split(':')[0]" @click="handleHourSelect(hour)"
                         :class="selectedHour === hour ? 'bg-gradient-to-r from-gradient1 to-gradient2 text-white' : 'bg-white'"
-                        class="h-[30px] w-[30px] flex items-center justify-center rounded-[10px]">
+                        class="h-[30px] w-full flex items-center justify-center rounded-[10px] p-5">
                         {{ hour }}
                     </div>
                 </div>
-                <div class="grid max-h-full min-h-fit overflow-scroll">
+                <div class="grid max-h-full min-h-fit overflow-y-scroll">
                     <div v-for="minute in minutes"
                         @click="handleMinuteSelect(minute)"
                         v-show="minuteCanBeDisplayed(minute)"
                         :class="selectedMinute === minute ? 'bg-gradient-to-r from-gradient1 to-gradient2 text-white' : 'bg-white'"
-                        class="h-[30px] w-[30px] flex items-center justify-center rounded-[10px]">
+                        class="h-[30px] w-full flex items-center justify-center rounded-[10px] p-5">
                         {{ minute }}
                     </div>
                 </div>

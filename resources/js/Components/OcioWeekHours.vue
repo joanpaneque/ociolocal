@@ -70,9 +70,9 @@ function canAddHour(day) {
         <div v-if="selected_day" v-for="(hour, index) in currentHours" :key="index" class="flex gap-1 h-[60px] bg-gradient-to-r from-gradient1 to-gradient2 text-gradient2 p-[1px] rounded-[10px]">
             <div class="bg-white w-full h-full rounded-[9px] p-[10px] flex gap-3 justify-between items-center">
                 <div class="flex gap-3">
-                    <OcioHour v-model:hour="hour.start" :minHour="currentHours[index - 1]?.end" />
+                    <OcioHour v-model:hour="currentHours[index].start" :minHour="index === 0 ? '-1:-1' : currentHours[index - 1].end" />
                     <p class="flex items-center justify-center">hasta</p>
-                    <OcioHour v-model:hour="hour.end" :minHour="hour.start" :disabled="!hour.start" />
+                    <OcioHour v-model:hour="currentHours[index].end" :minHour="hour.start" :disabled="!hour.start" />
                 </div>
                 <div @click="handleDeleteHour(selected_day, index)"
                     class="bg-gradient-to-r from-gradient1 to-gradient2 text-gradient2 flex items-center justify-center w-[40px] h-full rounded-[10px]">
