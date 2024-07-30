@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, defineProps } from 'vue';
 import { Head, usePage } from '@inertiajs/vue3';
 import Section from '@/Components/Section.vue';
 import ActivityThumbnail from '@/Components/ActivityThumbnail.vue';
@@ -20,6 +20,14 @@ const placeholders = [
     "Actividades de adrenalina",
     "Parques acuáticos"
 ];
+
+const props = defineProps({
+    activities: {
+        type: Object,
+        required: true,
+        default: () => []
+    }
+});
 
 const ph = ref('');
 
@@ -115,21 +123,8 @@ setInterval(() => {
         <Section title="Descuentos + TOP 🔥" secondary="02:35:13h restantes">
             <div class="flex gap-3 overflow-x-auto w-full pb-2">
                 <ActivityThumbnail
-                    :activity="{ name: 'SkyDive Empuriabrava', discount: '7% de descuento', thumbnail: '/assets/welcome/skydive.jpg' }" />
-                <ActivityThumbnail
-                    :activity="{ name: 'Windoor Empuriabrava', discount: '3% de descuento', thumbnail: '/assets/welcome/windoor.avif' }" />
-                <ActivityThumbnail
-                    :activity="{ name: 'SkyDive Empuriabrava', discount: '7% de descuento', thumbnail: '/assets/welcome/skydive.jpg' }" />
-                <ActivityThumbnail
-                    :activity="{ name: 'Windoor Empuriabrava', discount: '3% de descuento', thumbnail: '/assets/welcome/windoor.avif' }" />
-                <ActivityThumbnail
-                    :activity="{ name: 'SkyDive Empuriabrava', discount: '7% de descuento', thumbnail: '/assets/welcome/skydive.jpg' }" />
-                <ActivityThumbnail
-                    :activity="{ name: 'Windoor Empuriabrava', discount: '3% de descuento', thumbnail: '/assets/welcome/windoor.avif' }" />
-                <ActivityThumbnail
-                    :activity="{ name: 'SkyDive Empuriabrava', discount: '7% de descuento', thumbnail: '/assets/welcome/skydive.jpg' }" />
-                <ActivityThumbnail
-                    :activity="{ name: 'Windoor Empuriabrava', discount: '3% de descuento', thumbnail: '/assets/welcome/windoor.avif' }" />
+                    v-for="activity in activities"
+                    :activity="activity" />
             </div>
         </Section>
         <Section title="¿Qué te apetece?">

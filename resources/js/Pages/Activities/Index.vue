@@ -11,6 +11,18 @@ const props = defineProps({
     company: {
         type: Object,
         required: true
+    },
+    upcoming_activities: {
+        type: Array,
+        required: true
+    },
+    in_progress_activities: {
+        type: Array,
+        required: true
+    },
+    past_activities: {
+        type: Array,
+        required: true
     }
 })
 </script>
@@ -22,62 +34,23 @@ const props = defineProps({
         <Section title="En curso">
             <div class="flex gap-3 overflow-x-auto w-full pb-2">
                 <ActivityManagementThumbnail
-                    :activity="{ name: 'SkyDive Empuriabrava', thumbnail: '/assets/welcome/skydive.jpg' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'Windoor Empuriabrava', thumbnail: '/assets/welcome/windoor.avif' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'SkyDive Empuriabrava', thumbnail: '/assets/welcome/skydive.jpg' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'Windoor Empuriabrava', thumbnail: '/assets/welcome/windoor.avif' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'SkyDive Empuriabrava', thumbnail: '/assets/welcome/skydive.jpg' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'Windoor Empuriabrava', thumbnail: '/assets/welcome/windoor.avif' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'SkyDive Empuriabrava', thumbnail: '/assets/welcome/skydive.jpg' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'Windoor Empuriabrava', thumbnail: '/assets/welcome/windoor.avif' }" />
+                    v-for="activity in in_progress_activities"
+                    :activity="activity" />
             </div>
         </Section>
 
         <Section title="Próximamente">
             <div class="flex gap-3 overflow-x-auto w-full pb-2">
                 <ActivityManagementThumbnail
-                    :activity="{ name: 'SkyDive Empuriabrava', thumbnail: '/assets/welcome/skydive.jpg' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'Windoor Empuriabrava', thumbnail: '/assets/welcome/windoor.avif' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'SkyDive Empuriabrava', thumbnail: '/assets/welcome/skydive.jpg' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'Windoor Empuriabrava', thumbnail: '/assets/welcome/windoor.avif' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'SkyDive Empuriabrava', thumbnail: '/assets/welcome/skydive.jpg' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'Windoor Empuriabrava', thumbnail: '/assets/welcome/windoor.avif' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'SkyDive Empuriabrava', thumbnail: '/assets/welcome/skydive.jpg' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'Windoor Empuriabrava', thumbnail: '/assets/welcome/windoor.avif' }" />
+                    v-for="activity in upcoming_activities"
+                    :activity="activity" />
             </div>
         </Section>
         <Section title="Terminadas">
             <div class="flex gap-3 overflow-x-auto w-full pb-2">
                 <ActivityManagementThumbnail
-                    :activity="{ name: 'SkyDive Empuriabrava', thumbnail: '/assets/welcome/skydive.jpg' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'Windoor Empuriabrava', thumbnail: '/assets/welcome/windoor.avif' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'SkyDive Empuriabrava', thumbnail: '/assets/welcome/skydive.jpg' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'Windoor Empuriabrava', thumbnail: '/assets/welcome/windoor.avif' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'SkyDive Empuriabrava', thumbnail: '/assets/welcome/skydive.jpg' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'Windoor Empuriabrava', thumbnail: '/assets/welcome/windoor.avif' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'SkyDive Empuriabrava', thumbnail: '/assets/welcome/skydive.jpg' }" />
-                <ActivityManagementThumbnail
-                    :activity="{ name: 'Windoor Empuriabrava', thumbnail: '/assets/welcome/windoor.avif' }" />
+                    v-for="activity in past_activities"
+                    :activity="activity" />
             </div>
         </Section>
     </div>

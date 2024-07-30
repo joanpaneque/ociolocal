@@ -63,6 +63,12 @@ Route::get('/users/{user}/companies/{company}/activities/{activity}/edit', [Acti
 Route::put('/users/{user}/companies/{company}/activities/{activity}', [ActivityController::class, 'update'])->middleware('auth')->name('users.companies.activities.update');
 Route::delete('/users/{user}/companies/{company}/activities/{activity}', [ActivityController::class, 'destroy'])->middleware('auth')->name('users.companies.activities.destroy');
 
+/*
+*   /activities
+*/
+Route::get('/activities/{activity}', [ActivityController::class, 'show_user'])->middleware('auth')->name('activities.show_user');
+
+
 
 
 Route::post('/create-price', [PriceController::class, 'createProductAndPrice']);

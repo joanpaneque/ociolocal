@@ -18,13 +18,14 @@ const props = defineProps({
     }
 });
 
-const emit = defineEmits('update:modelValue');
+const emit = defineEmits(['update:modelValue', 'change']);
 
 const isChecked = ref(props.modelValue);
 
 function updateValue() {
     isChecked.value = !isChecked.value;
     emit('update:modelValue', isChecked.value);
+    emit('change', isChecked.value);
 }
 
 

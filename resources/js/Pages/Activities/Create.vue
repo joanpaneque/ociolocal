@@ -10,6 +10,7 @@ import OcioWeekHours from '@/Components/OcioWeekHours.vue';
 import OcioButton from '@/Components/OcioButton.vue';
 import OcioModal from '@/Components/OcioModal.vue';
 import OcioContribution from '@/Components/OcioContribution.vue';
+import OcioImages from '@/Components/OcioImages.vue';
 import 'cally';
 
 const props = defineProps({
@@ -34,11 +35,13 @@ const form = useForm({
         'saturday': [],
         'sunday': []
     },
+    'max_concurrent_people': null,
     'ticket_types': [{
         'name': "Entrada general",
         'price': null
     }],
-    'contribution': '10'
+    'contribution': '10',
+    'images': []
 });
 
 const isOpenContributionModal = ref(false);
@@ -49,6 +52,10 @@ function getCheapestTicket() {
     if (form.ticket_types.length === 0) return null;
     if (form.ticket_types.some(ticket => !ticket.price)) return null;
     return form.ticket_types.reduce((prev, curr) => prev.price < curr.price ? prev : curr);
+}
+
+function createActivity() {
+    form.post(route('users.companies.activities.store', [$page.props.auth.user.id, company.id]));
 }
 
 
@@ -81,7 +88,7 @@ function getCheapestTicket() {
 
             <div>
                 <h2 class="font-bold mt-4">Gestión de ventas</h2>
-                <OcioInput placeholder="Personas máximas simultáneas" icon="/assets/icons/queue-alt.svg" />
+                <OcioInput placeholder="Personas máximas simultáneas" icon="/assets/icons/queue-alt.svg" v-model="form.max_concurrent_people" />
                 <h2 class="mt-2 mb-1">Tipos de entrada</h2>
                 <div class="grid gap-2">
                     <div v-for="(ticket, index) in form.ticket_types" :key="index"
@@ -105,6 +112,10 @@ function getCheapestTicket() {
                 </div>
                 <OcioButton class="mt-3" text="Nuevo tipo de entrada"
                     @click="form.ticket_types.push({ name: null, price: null })" />
+
+                <h2 class="mt-2 mb-1">Imagenes</h2>
+                <OcioImages v-model:images="form.images" />
+                
             </div>
             <div class="mt-6">
                 <h2 class="font-bold mb-2">Contribución a Ocio Local</h2>

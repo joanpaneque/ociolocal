@@ -7,16 +7,85 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Company;
 use App\Models\Booking;
+use App\Models\ActivityImage;
 
 class Activity extends Model
 {
     use HasFactory;
 
     protected $fillable = [
+        'activity_name',
+        'season',
+        'date_start',
+        'date_end',
+        'date_event',
+        'max_concurrent_people',
+        'weekly_schedule',
+        'ticket_types',
+        'contribution',
         'company_id',
-        'name',
-        'description'
+        'clicks',
+        'views',
     ];
+
+    // cols that shouldn't be sent to the frontend
+    protected $hidden = [
+        'contribution'
+    ];
+
+    protected $appends = [
+        'discount'
+    ];
+
+    public function getDiscountAttribute()
+    {
+        return $this->attributes['contribution'] / 2;
+    }
+
+    public function images()
+    {
+        return $this->hasMany(ActivityImage::class)->with('image');
+    }
+
+    public function scopeInProgress($query)
+    {
+        $today = (new \DateTime())->format('Y-m-d');
+
+        return $query->where(function($query) use ($today) {
+            $query->where('season', true)
+                ->where('date_start', '<=', $today)
+                ->where('date_end', '>=', $today);
+        })->orWhere(function($query) use ($today) {
+            $query->where('season', false)
+                ->where('date_event', '=', $today);
+        });
+    }
+
+    public function scopeUpcoming($query)
+    {
+        $today = (new \DateTime())->format('Y-m-d');
+
+        return $query->where(function($query) use ($today) {
+            $query->where('season', true)
+                ->where('date_start', '>', $today);
+        })->orWhere(function($query) use ($today) {
+            $query->where('season', false)
+                ->where('date_event', '>', $today);
+        });
+    }
+
+    public function scopePast($query)
+    {
+        $today = (new \DateTime())->format('Y-m-d');
+
+        return $query->where(function($query) use ($today) {
+            $query->where('season', true)
+                ->where('date_end', '<', $today);
+        })->orWhere(function($query) use ($today) {
+            $query->where('season', false)
+                ->where('date_event', '<', $today);
+        });
+    }
 
     public function company()
     {
