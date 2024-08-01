@@ -23,7 +23,7 @@ const props = defineProps({
                 :key="company.id"
                 @click="router.get(route('users.companies.show', [$page.props.auth.user.id, company.id]))"
                 class="w-full h-[150px] shadow-md rounded-[9px] overflow-hidden border border-gray-400 flex items-center justify-center">
-                <img :src="company.image" :alt="company.company_name" class="w-full object-cover"/>
+                <img :src="company.image" :alt="company.company_name" class="h-full object-cover"/>
             </div>
         </div>
         <!-- <img v-for="company in companies" :key="company.id" :src="company.image" :alt="company.company_name" class="w-[100px] h-[100px]"/> -->

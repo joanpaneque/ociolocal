@@ -224,7 +224,7 @@ class ActivityController extends Controller
     public function show_user(Activity $activity)
     {
         return Inertia::render('Activities/ShowUser', [
-            'activity' => $activity
+            'activity' => $activity->load('images', 'company')
         ]);
     }
 

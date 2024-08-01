@@ -2,7 +2,6 @@
 import { defineProps } from 'vue';
 import { router } from '@inertiajs/vue3';
 
-
 const props = defineProps({
     route: {
         type: Object,
@@ -26,9 +25,8 @@ function goBack() {
 </script>
 
 <template>
-    <div
-        :class="{'bg-white': occupySpace, 'bg-transparent': !occupySpace}"
-        class="pt-4 fixed top-[0px] left-[15px] w-full flex items-center gap-5 z-40">
+    <div :class="{'bg-white': occupySpace, 'bg-transparent': !occupySpace}"
+        class="pt-4 fixed top-[0px] pl-[15px] w-full flex items-center gap-5 z-40">
         <img src="/assets/icons/left-arrow.svg" alt="Go back" class="w-14 h-14 bg-white rounded-full p-2" @click="goBack"/>
         <h1 class="text-[28px] font-[600] pr-10 overflow-hidden whitespace-nowrap overflow-ellipsis"
          v-if="title">

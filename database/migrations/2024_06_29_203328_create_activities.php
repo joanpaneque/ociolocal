@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('company_id')->constrained()->onDelete('cascade');
             $table->string('activity_name');
+            $table->string('description')->nullable();
             $table->boolean('season');
             $table->date('date_start')->nullable();
             $table->date('date_end')->nullable();

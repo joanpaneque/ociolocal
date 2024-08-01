@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
 
         Company::create([
             'user_id' => 1,
-            'company_name' => 'Chic Roses',
+            'company_name' => 'Cinemes Roses',
             'company_email' => 'anonymous@anonymous.com',
             'company_phone' => '123456789',
             'company_address' => 'Calle Anonima',
@@ -45,18 +45,32 @@ class DatabaseSeeder extends Seeder
             'legal_representative_email' => 'anonymous@anonymous.com',
             'legal_representative_phone' => '123456789',
             'iban' => 'ES123456789',
-            'image' => '/assets/default/chic.png'
+            'image' => '/assets/default/logo-cinemes.png'
         ]);
         
         Activity::create([
             'company_id' => 1,
-            'activity_name' => 'Opera random',
-            'season' => 1,
-            'date_start' => '2021-10-01',
-            'date_end' => '2021-10-31',
-            'date_event' => '2021-10-31',
+            'activity_name' => 'Taylor Swift en directe',
+            'description' => 'Gaudeix de la retransmissió en directe del concert de la Taylor Swift a Anglaterra des del Cinema de Roses.',
+            'season' => 0,
+            'date_event' => (new \DateTime('tomorrow'))->format('Y-m-d'),
             'ticket_types' => json_encode([
-                ['name' => 'Entrada general', 'price' => 100]
+                [
+                    'name' => 'Entrada general',
+                    'price' => 15
+                ],
+                [
+                    'name' => 'Entrada general + menu petit (crispetes + refresc)',
+                    'price' => 17.5
+                ],
+                [
+                    'name' => 'Entrada general + menu mitjà (crispetes + refresc)',
+                    'price' => 20
+                ],
+                [
+                    'name' => 'Entrada general + menu gran (crispetes + refresc)',
+                    'price' => 22.5
+                ]
             ]),
             'weekly_schedule' => json_encode([
                 'monday' => [
@@ -135,7 +149,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Image::create([
-            'url' => '/assets/default/a.jpg',
+            'url' => '/assets/default/taylor.png',
             'description' => 'First image',
         ]);
 
